@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F45F8889-A0EC-4903-91AB-E72C275F8F86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExemploEFCore.App", "src\ExemploEFCore.App\ExemploEFCore.App.csproj", "{D2957BD7-5080-40A3-A8BF-CD289E765FFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2957BD7-5080-40A3-A8BF-CD289E765FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2957BD7-5080-40A3-A8BF-CD289E765FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2957BD7-5080-40A3-A8BF-CD289E765FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2957BD7-5080-40A3-A8BF-CD289E765FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D2957BD7-5080-40A3-A8BF-CD289E765FFE} = {F45F8889-A0EC-4903-91AB-E72C275F8F86}
+	EndGlobalSection
+EndGlobal
