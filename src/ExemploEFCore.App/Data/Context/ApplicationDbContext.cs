@@ -1,6 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using ExemploEFCore.App.Models;
+using ExemploEFCore.App.Configuration;
 
 namespace ExemploEFCore.App.Context
 {
@@ -12,5 +13,11 @@ namespace ExemploEFCore.App.Context
         {
             optionsBuilder.UseSqlServer(@"Data Source=localhost;Initial Catalog=AlunosDB;User ID=test;Password=$trongPassword;");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration<Aluno>(new AlunoConfiguration());
+        }
     }
 }
+
