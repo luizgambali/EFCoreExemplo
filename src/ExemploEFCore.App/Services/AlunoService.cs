@@ -45,7 +45,7 @@ namespace ExemploEFCore.App.Services
 
                 result.AlterarNome(aluno.Nome);
                 result.AlterarIdade(aluno.Idade);
-                result.AlterarEmail(aluno.Email);
+                result.AlterarEmail(new Email(aluno.Email));
                     
                 _alunoRepository.Atualizar(result);
 

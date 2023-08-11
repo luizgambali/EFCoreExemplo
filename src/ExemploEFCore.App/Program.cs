@@ -1,10 +1,7 @@
 ﻿using ExemploEFCore.App.Models;
 using ExemploEFCore.App.Interfaces;
-using ExemploEFCore.App.Services;
-using ExemploEFCore.App.Data;
 using Microsoft.Extensions.DependencyInjection;
 using ExemploEFCore.App.DI;
-using System.Linq;
 
 namespace ExemploEFCore.App
 {

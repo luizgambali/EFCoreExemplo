@@ -11,7 +11,7 @@ namespace ExemploEFCore.App.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=localhost;Initial Catalog=AlunosDB;User ID=test;Password=$trongPassword;");
+            optionsBuilder.UseSqlite(@"Data Source=./database.db;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

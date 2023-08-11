@@ -5,7 +5,7 @@ namespace ExemploEFCore.App.Models
         public int Id { get; private set; }
         public string Nome { get; private set; }
         public int Idade { get; private set; }
-        public Email Email { get; private set; }
+        public string Email { get; private set; }
 
         public Aluno(){}
 
@@ -13,7 +13,7 @@ namespace ExemploEFCore.App.Models
         {
             Nome = nome;
             Idade = idade;
-            Email = email;
+            Email = email.Endereco;
 
             Validar();
         }
@@ -31,7 +31,7 @@ namespace ExemploEFCore.App.Models
 
         public void AlterarEmail(Email email)
         {
-            Email = email;
+            Email = email.Endereco;
         }
 
         public void Validar()
