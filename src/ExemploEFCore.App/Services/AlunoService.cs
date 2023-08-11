@@ -18,25 +18,15 @@ namespace ExemploEFCore.App.Services
         { 
             try
             {
-                if (aluno.Validate())
-                {
-                    _alunoRepository.Inserir(aluno);
-                    Console.WriteLine("Aluno inserido com sucesso!");
-                    return true;
-                }
-                else
-                {
-                    Console.WriteLine("Dados do aluno estão inconsistentes!");
-                    return false;
-                }
+                _alunoRepository.Inserir(aluno);
+                Console.WriteLine("Aluno inserido com sucesso!");
+                return true;
             }
             catch(Exception ex)
             {
                 Console.WriteLine("InserirAluno() : Ops! Algo saiu errado! " + ex.Message);
                 return false;
             }
-
-            return false; 
         }
 
 
@@ -52,22 +42,15 @@ namespace ExemploEFCore.App.Services
                     return false;
                 }
 
-                if (aluno.Validate())
-                {
-                    result.Nome = aluno.Nome;
-                    result.Idade = aluno.Idade;
-                    result.Email = aluno.Email;
-                    
-                    _alunoRepository.Atualizar(result);
 
-                    Console.WriteLine("Dados do aluno atualizados com sucesso!");
-                    return true;
-                }
-                else
-                {
-                    Console.WriteLine("Dados do aluno estão inconsistentes!");
-                    return false;
-                }
+                result.AlterarNome(aluno.Nome);
+                result.AlterarIdade(aluno.Idade);
+                result.AlterarEmail(aluno.Email);
+                    
+                _alunoRepository.Atualizar(result);
+
+                Console.WriteLine("Dados do aluno atualizados com sucesso!");
+                return true;
             }
             catch(Exception ex)
             {

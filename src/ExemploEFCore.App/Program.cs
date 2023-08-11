@@ -20,9 +20,9 @@ namespace ExemploEFCore.App
             var alunoService = serviceProvider.GetService<IAlunoService>();
 
             //criando os alunos
-            var primeiroAluno = new Aluno() { Nome = "Primeiro Aluno", Email = "primeiroaluno@email.com", Idade = 22 };
-            var segundoAluno = new Aluno() { Nome = "Segundo Aluno", Email = "segundoaluno@email.com", Idade = 27 };
-            var terceiroAluno = new Aluno() { Nome = "Terceiro Aluno", Email = "terceiroaluno@email.com", Idade = 19 };
+            var primeiroAluno = new Aluno("Primeiro Aluno", 22, new Email("primeiroaluno@email.com"));            
+            var segundoAluno = new Aluno("Segundo Aluno",27, new Email("segundoaluno@email.com"));            
+            var terceiroAluno = new Aluno("Terceiro Aluno", 19, new Email("terceiroaluno@email.com"));
 
             //inserindo um aluno
             alunoService.InserirAluno(primeiroAluno);
@@ -39,24 +39,20 @@ namespace ExemploEFCore.App
             //pega o primeiro aluno cadastrado
             var aluno  = lista.FirstOrDefault();
 
-            //altera os dados desse aluno
-            aluno.Nome = "Teste de alteração de nome";
-            aluno.Idade = 35;
-            aluno.Email = "testenome@email.com";
-
-            //atualiza os dados do aluno
-            alunoService.AtualizarDados(aluno.Id, aluno);
-
-            //recupera os dados do aluno novamente
+            if (aluno != null)
+            {
+                aluno.AlterarNome("Teste de alteração de nome");
+                aluno.AlterarIdade(35);
+                aluno.AlterarEmail(new Email("testenome@email.com"));
+                alunoService.AtualizarDados(aluno.Id, aluno);
+            }
+            
             var alunoAlterado = alunoService.ObterPorId(aluno.Id);
 
-            //mostra os dados do aluno
             Console.WriteLine($"Aluno: {alunoAlterado.Nome}, Idade: {alunoAlterado.Idade}, E-mail: {alunoAlterado.Email} ");
 
-            //
             alunoService.ExcluirAluno(aluno.Id);
 
-            //mostrando os alunos cadastrados no banco
             foreach(var item in lista) 
                 Console.WriteLine($"Aluno: {item.Nome}, Idade: {item.Idade}, E-mail: {item.Email} ");
         }

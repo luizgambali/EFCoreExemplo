@@ -1,20 +1,43 @@
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace ExemploEFCore.App.Models
 {
     public class Aluno
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public int Idade { get; set; }
-        public string Email { get; set; }
-        public bool Validate()
-        {
-            if (string.IsNullOrEmpty(Nome) || string.IsNullOrEmpty(Email) || Idade < 16)
-                return false;
+        public int Id { get; private set; }
+        public string Nome { get; private set; }
+        public int Idade { get; private set; }
+        public Email Email { get; private set; }
 
-            return true;
+        public Aluno(){}
+
+        public Aluno(string nome, int idade, Email email)
+        {
+            Nome = nome;
+            Idade = idade;
+            Email = email;
+
+            Validar();
+        }
+
+        public void AlterarNome(string novoNome)
+        {
+            Nome = novoNome;
+            Validar();
+        }
+
+        public void AlterarIdade(int idade)
+        {
+            Idade = idade;
+        }
+
+        public void AlterarEmail(Email email)
+        {
+            Email = email;
+        }
+
+        public void Validar()
+        {
+            if (string.IsNullOrEmpty(Nome))
+                throw new ArgumentException("O nome do aluno não pode ser vazio");
         }
     }
 }
